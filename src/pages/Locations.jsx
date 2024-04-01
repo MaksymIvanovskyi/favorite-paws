@@ -1,5 +1,8 @@
 import React from 'react';
-import Pet from '../assets/laptop.jpg'
+import Pet from '../assets/kapybara.jpg' ;
+import arrowImage from '../assets/paw-icon.png'; // Import the arrow image
+import Dog from '../assets/dog.jpg' ;
+import Monkey from '../assets/monkey.jpg' ;
 
 const establishments = [
   {
@@ -14,21 +17,21 @@ const establishments = [
     name: "Paws & Relax",
     description: "A pet-friendly hotel with spacious rooms and a play area.",
     rating: 5,
-    image: "https://via.placeholder.com/150"
+    image: Dog
   },
   {
     id: 3,
     name: "Bark 'n' Brews",
     description: "A pet-friendly bar with a wide selection of drinks and a dog park.",
     rating: 4.5,
-    image: "https://via.placeholder.com/150"
+    image: Monkey
   }
 ];
 
 const EstablishmentCard = ({ establishment }) => (
-  <div className=" flex mb-4 rounded-2xl" style={{ backgroundColor: '#824421 hover:bg-[#7b492b]' }}>
+  <div className="flex mb-4 rounded-2xl" style={{ backgroundColor: '#824421 hover:bg-[#7b492b]' }}>
     <img src={establishment.image} alt={establishment.name} className="w-24 h-24 mr-4 rounded-md" />
-    <div className=" rounded-2xl flex flex-col justify-between">
+    <div className="rounded-2xl flex flex-col justify-between">
       <div className="rounded-2xl flex items-center mb-2">
         <span className="text-xl mr-2">{establishment.rating}</span>
         {[...Array(Math.floor(establishment.rating))].map((_, index) => (
@@ -40,7 +43,9 @@ const EstablishmentCard = ({ establishment }) => (
       <h2 className="text-lg font-semibold mb-2">{establishment.name}</h2>
       <p className="text-gray-600">{establishment.description}</p>
     </div>
-    <a href="/another-page" className="ml-auto">&gt;</a>
+    <a href="/another-page" className="ml-auto">
+      <img src={arrowImage} alt="Arrow" className="w-8 h-8 arrow-img" /> {/* Larger arrow image */}
+    </a>
   </div>
 );
 

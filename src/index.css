@@ -7,3 +7,6 @@ body {
     
     background-color: #d9c4b8;
   }
+.arrow-img:hover {
+  transform: scale(1.2); /* Increase the size by 20% on hover */
+}
