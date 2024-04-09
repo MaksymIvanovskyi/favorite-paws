@@ -269,21 +269,21 @@ const establishments = [
 ];
   
 
-const EstablishmentCard = ({ establishment }) => (
-  <div className="relative mb-8 rounded-2xl p-6" style={{ backgroundColor: '#e89a6d' }}>
-    <div className="flex">
-      <img src={establishment.image} className="w-64 h-64 mr-8 rounded-md" style={{ width: '200px', height: '200px' }} />
-      <div className="flex-1">
-        <h2 className="text-2xl font-semibold mb-4">{establishment.name}</h2>
-        <p className="text-[#572b11]">{establishment.description}</p>
-        <a href="/another-page" className="mt-auto">
-          <img src={arrowImage} alt="Arrow" className="w-12 h-12 absolute bottom-4 right-4" style={{ filter: 'brightness(150%)' }} />
-        </a>
+function EstablishmentCard({ establishment }) {
+  return (
+    <div className="relative mb-8 rounded-2xl p-6" style={{ backgroundColor: '#e89a6d', zIndex: '-1' }}>
+      <div className="flex">
+        <img src={establishment.image} className="w-64 h-64 mr-8 rounded-md" style={{ width: '200px', height: '200px' }} />
+        <div className="flex-1">
+          <h2 className="text-2xl font-semibold mb-4">{establishment.name}</h2>
+          <p className="text-[#572b11]">{establishment.description}</p>
+        </div>
       </div>
     </div>
-  </div>
-);
-const PetFriendlyPage = () => {
+  );
+}
+
+function PetFriendlyPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-2 gap-8">
@@ -293,6 +293,7 @@ const PetFriendlyPage = () => {
       </div>
     </div>
   );
-};
+}
+
 
 export default PetFriendlyPage;
