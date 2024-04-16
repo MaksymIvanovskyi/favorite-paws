@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import establishmentsData from '../assets/esteblishment.json';
-import restaurants from '../photos/Photos.jsx';
 
 export default function EpicCheeseburger() {
   const [establishment, setEstablishment] = useState(null);
@@ -18,7 +17,7 @@ export default function EpicCheeseburger() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="relative mb-8 rounded-2xl p-6 bg-white border-2 border-gray-400">
-        <img src={restaurants.EpicCheeseburger} className="w-64 h-64 mr-8 rounded-md" alt={restaurants.name} />
+        <img src={establishment.duck} className="w-64 h-64 mr-8 rounded-md" alt={establishment.name} />
         <div className="flex-1">
           <h2 className="text-2xl font-semibold mb-4">{establishment.name}</h2>
           <p className="text-brown">{establishment.description}</p>

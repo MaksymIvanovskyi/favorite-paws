@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import establishmentsData from '../assets/esteblishment.json';
-import restaurants from '../photos/Photos.jsx';
-
+import restaurants from '../assets/Photos';
 
 export default function Dogslikeducks() {
   const [establishment, setEstablishment] = useState(null);

@@ -16,6 +16,7 @@ import Papi from '../assets/papi.png';
 import MoreRyby from '../assets/more-ryby.jpg';
 import EpicCheeseburger from '../assets/epic-cheeseburger.jpg';
 import CukorBlack from '../assets/cukor-black.jpg';
+import Teddy from '../assets/teddy.jpg';
 import Gooddog from '../assets/gooddog.jpg';
 import Druzi from '../assets/druzi.jpg';
 import Kredens from '../assets/kredens.jpg';
