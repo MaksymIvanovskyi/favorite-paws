@@ -33,6 +33,7 @@ import Tsikava from '../components/Tsikava'
 import Tutti from '../components/Tutti'
 import Valentino from '../components/Valentino'
 import Virmenskiy from '../components/Virmenskiy'
+import restaurants from '../photos/Photos.jsx';
 
 
 
@@ -44,37 +45,37 @@ export default function Locations(){
         <Dogslikeducks />
         <Lazydog />
         <Pidzemellya />
-        <Akvarel/>
-        <Bernadynrestaurant/>
-        <Catcafelviv/>
-        <CheeseBakery/>
-        <CraftKumpel/>
-        <CukorBlack/>
-        <DobriyDrug/>
-        <DobriyPes/>
-        <Dominicanes/>
-        <DovgiOpleski/>
-        <Druzicafe/>
-        <Dziga/>
-        <EpicCheeseburger/>
-        <Facet/>
-        <Grandcafeleopolis/>
-        <Greenwich/>
-        <Hash/>
-        <KingPivo/>
-        <Kredenscafe/>
-        <LvivManufactura/>
-        <Marevo/>
-        <Moment/>
-        <MoreRibi/>
-        <Papi/>
-        <Shoco/>
-        <Sowa/>
-        <Sugar/>
-        <Tsikava/>
-        <Tutti/>
-        <Valentino/>
-        <Virmenskiy/>
+        <Akvarel />
+        <Bernadynrestaurant />
+        <Catcafelviv />
+        <CheeseBakery />
+        <CraftKumpel />
+        <CukorBlack />
+        <DobriyDrug />
+        <DobriyPes />
+        <Dominicanes />
+        <DovgiOpleski />
+        <Druzicafe />
+        <Dziga />
+        <EpicCheeseburger />
+        <Facet />
+        <Grandcafeleopolis />
+        <Greenwich />
+        <Hash />
+        <KingPivo />
+        <Kredenscafe />
+        <LvivManufactura />
+        <Marevo />
+        <Moment />
+        <MoreRibi />
+        <Papi />
+        <Shoco />
+        <Sowa />
+        <Sugar />
+        <Tsikava />
+        <Tutti />
+        <Valentino />
+        <Virmenskiy />
 
           
         </>
