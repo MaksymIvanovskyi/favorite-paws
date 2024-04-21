@@ -1,84 +1,59 @@
 import 'tailwindcss/tailwind.css';
-import Dogslikeducks from '../components/Dogslikeducks'
-import Lazydog from '../components/Lazydog'
-import Pidzemellya from '../components/5Pidzemellya'
-import Akvarel from '../components/Dogslikeducks'
-import Bernadynrestaurant from '../components/Bernadynrestaurant'
-import Catcafelviv from '../components/Catcafelviv'
-import CheeseBakery from '../components/CheeseBakery'
-import CraftKumpel from '../components/CraftKumpel'
-import CukorBlack from '../components/CukorBlack'
-import DobriyDrug from '../components/DobriyDrug'
-import DobriyPes from '../components/DobriyPes'
-import Dominicanes from '../components/Dominicanes'
-import DovgiOpleski from '../components/DovgiOpleski'
-import Druzicafe from '../components/Druzicafe'
-import Dziga from '../components/Dziga'
-import EpicCheeseburger from '../components/EpicCheeseburger'
-import Facet from '../components/Facet'
-import Grandcafeleopolis from '../components/Grandcafeleopolis'
-import Greenwich from '../components/Greenwich'
-import Hash from '../components/Hash'
-import KingPivo from '../components/KingPivo'
-import Kredenscafe from '../components/Kredenscafe'
-import LvivManufactura from '../components/LvivManufactura'
-import Marevo from '../components/Marevo'
-import Moment from '../components/Moment'
-import MoreRibi from '../components/MoreRibi'
-import Papi from '../components/Papi'
-import Shoco from '../components/Shoco'
-import Sowa from '../components/Sowa'
-import Sugar from '../components/Sugar'
-import Tsikava from '../components/Tsikava'
-import Tutti from '../components/Tutti'
-import Valentino from '../components/Valentino'
-import Virmenskiy from '../components/Virmenskiy'
+import React, { useState, useEffect, useRef } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
+export default function Locations() {
+  const [places, setPlaces] = useState([]);
 
+  useEffect(() => {
+    fetch('http://localhost:5000/api/places')
+      .then(response => response.json())
+      .then(data => setPlaces(data))
+      .catch(error => console.error('Error fetching places:', error));
+  }, []);
 
+  const LocationsList = ({ locations }) => {
+    return (
+      <div>
+        {locations.map(location => <LocationItem key={location.id} location={location} />)}
+      </div>
+    );
+  };
 
+  const [showMap, setShowMap] = useState(false);
 
-export default function Locations(){
-    return(
-        <>
-        <Dogslikeducks />
-        <Lazydog />
-        <Pidzemellya />
-        <Akvarel/>
-        <Bernadynrestaurant/>
-        <Catcafelviv/>
-        <CheeseBakery/>
-        <CraftKumpel/>
-        <CukorBlack/>
-        <DobriyDrug/>
-        <DobriyPes/>
-        <Dominicanes/>
-        <DovgiOpleski/>
-        <Druzicafe/>
-        <Dziga/>
-        <EpicCheeseburger/>
-        <Facet/>
-        <Grandcafeleopolis/>
-        <Greenwich/>
-        <Hash/>
-        <KingPivo/>
-        <Kredenscafe/>
-        <LvivManufactura/>
-        <Marevo/>
-        <Moment/>
-        <MoreRibi/>
-        <Papi/>
-        <Shoco/>
-        <Sowa/>
-        <Sugar/>
-        <Tsikava/>
-        <Tutti/>
-        <Valentino/>
-        <Virmenskiy/>
+  const Map = ({ location }) => {
+    const mapRef = useRef(null);
 
-          
-        </>
+    useEffect(() => {
+      mapRef.current = L.map('map').setView([location.lat, location.lng], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(mapRef.current);
+      L.marker([location.lat, location.lng]).addTo(mapRef.current);
+      return () => mapRef.current.remove();
+    }, [location]);
 
-    )
+    return <div id="map" style={{ height: '200px', width: '100%' }}></div>;
+  };
 
+  return (
+    <div>
+      <h1> </h1>
+      {places.map(place => (
+        <div key={place.id} style={{ border: '1px solid #ddd', margin: '10px', padding: '10px', position: 'relative' }}>
+          <img src={place.image} alt={place.name} style={{ width: '100px', height: '100px' }} />
+          <div style={{ marginLeft: '120px' }}>
+            <h3>{place.name}</h3>
+            <p>{place.description}</p>
+            <button onClick={() => setShowMap(!showMap)}>
+              {showMap ? 'Hide' : 'Show'} Map
+            </button>
+            {showMap && <Map location={place} />}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
