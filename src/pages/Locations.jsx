@@ -39,14 +39,14 @@ export default function Locations() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4 py-8">
       <h1> </h1>
       {places.map(place => (
-        <div key={place.id} style={{ border: '1px solid #ddd', margin: '10px', padding: '10px', position: 'relative' }}>
-          <img src={place.image} alt={place.name} style={{ width: '100px', height: '100px' }} />
-          <div style={{ marginLeft: '120px' }}>
-            <h3>{place.name}</h3>
-            <p>{place.description}</p>
+        <div key={place.id} className="relative mb-8 rounded-2xl p-6 border-2 border-gray-400 bg-[#f7b95c]">
+          <img src={place.imageUrl} alt={place.name} className="w-64 h-64 mr-8 rounded-md" />
+          <div>
+          <h3 className="text-2xl font-semibold mb-4 block border-b border-[#66421f]">{place.name}</h3>
+            <p className="text-brown">{place.description}</p>
             <button onClick={() => setShowMap(!showMap)}>
               {showMap ? 'Hide' : 'Show'} Map
             </button>

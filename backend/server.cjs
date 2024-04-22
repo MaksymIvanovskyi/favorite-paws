@@ -23,13 +23,13 @@ app.use((req, res, next) => {
 
 app.get('/api/places', async (req, res) => {
     try {
-        const db = mongoClient.db(); // Отримання посилання на базу даних
-        const collection = db.collection('restaurantsCollection'); // Отримання колекції
-        const places = await collection.find({}).toArray(); // Отримання даних з колекції
-        res.json(places); // Відправка результатів клієнту
+        const db = mongoClient.db(); 
+        const collection = db.collection('restaurantsCollection'); 
+        const places = await collection.find({}).toArray(); 
+        res.json(places); 
     } catch (err) {
         console.error('Error fetching places:', err);
-        res.status(500).json({ error: 'Internal Server Error' }); // Відправка помилки клієнту
+        res.status(500).json({ error: 'Internal Server Error' }); 
     }
 });
 
