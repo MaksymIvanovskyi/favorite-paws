@@ -64,7 +64,7 @@ const Navbar = () => {
         <h1 className='p-5 flex justify-center w-full text-3xl font-bold text-[#000000] m-4' style={{ fontSize: "3rem" }}>Улюблені лапки</h1>
         <Link 
           to="/" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373]" 
+          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredHome(true)}
           onMouseLeave={() => setIsHoveredHome(false)}
@@ -80,7 +80,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/locations" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373]" 
+          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredLocations(true)}
           onMouseLeave={() => setIsHoveredLocations(false)}
@@ -96,7 +96,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/about" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373]" 
+          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredAbout(true)}
           onMouseLeave={() => setIsHoveredAbout(false)}
@@ -112,7 +112,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/contact" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373]" 
+          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredContact(true)}
           onMouseLeave={() => setIsHoveredContact(false)}
