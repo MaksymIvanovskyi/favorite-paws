@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapIcon from "../assets/map-icon.png";
+import Map from '../components/Map.jsx'; // Змініть імпортований компонент на Map
+
+
 
 export default function Locations() {
   const [places, setPlaces] = useState([]);
@@ -12,32 +15,17 @@ export default function Locations() {
     fetch('http://localhost:5000/api/places')
       .then(response => response.json())
       .then(data => setPlaces(data))
-      .catch(error => console.error('Error fetching places:', error));
+      .catch(error => console.error('Помилка отримання місць:', error));
 
     // Установка таймера для виконання bounce кожні 60 секунд
     const intervalId = setInterval(() => {
       setIsBouncing(true); // Позначаємо, що має відбутися анімація "bounce"
       setTimeout(() => setIsBouncing(false), 1000); // Вимикаємо позначку після 1 секунди
-    }, 60000); // Кожні 60 секунд
+    }, 1000); // Кожні 60 секунд
 
     // Прибирання таймера при виході з компонента
     return () => clearInterval(intervalId);
   }, []);
-
-  const Map = ({ location }) => {
-    const mapRef = useRef(null);
-
-    useEffect(() => {
-      mapRef.current = L.map('map').setView([location.lat, location.lng], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(mapRef.current);
-      L.marker([location.lat, location.lng]).addTo(mapRef.current);
-      return () => mapRef.current.remove();
-    }, [location]);
-
-    return <div id="map" style={{ height: '200px', width: '100%' }}></div>;
-  };
 
   return (
     <div className="container mx-auto px-12 py-12">
@@ -52,6 +40,7 @@ export default function Locations() {
             <h3 className="text-2xl font-semibold mb-2 block border-b border-[#66421f]">{place.name}</h3>
             <p className="text-brown">{place.description}</p>
             {showMap && <Map location={place} />}
+
           </div>
         </div>
       ))}
