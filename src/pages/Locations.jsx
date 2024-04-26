@@ -1,29 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import MapIcon from "../assets/map-icon.png";
-import Map from '../components/Map.jsx'; // Змініть імпортований компонент на Map
-
-
+import Map from '../components/Map.jsx';
 
 export default function Locations() {
   const [places, setPlaces] = useState([]);
   const [showMap, setShowMap] = useState(false);
-  const [isBouncing, setIsBouncing] = useState(false); // Додали новий стан для керування анімацією
+  const [isBouncing, setIsBouncing] = useState(false);
 
+
+///виконання запиту на отримання місць ресторанів
   useEffect(() => {
-    fetch('http://localhost:5000/api/places')
-      .then(response => response.json())
-      .then(data => setPlaces(data))
+    Axios.get('http://localhost:5000/api/places')
+      .then(response => setPlaces(response.data))
       .catch(error => console.error('Помилка отримання місць:', error));
 
-    // Установка таймера для виконання bounce кожні 60 секунд
-    const intervalId = setInterval(() => {
-      setIsBouncing(true); // Позначаємо, що має відбутися анімація "bounce"
-      setTimeout(() => setIsBouncing(false), 1000); // Вимикаємо позначку після 1 секунди
-    }, 1000); // Кожні 60 секунд
 
-    // Прибирання таймера при виході з компонента
+    const intervalId = setInterval(() => {
+      setIsBouncing(true);
+      setTimeout(() => setIsBouncing(false), 1000);
+    }, 1000);
+
     return () => clearInterval(intervalId);
   }, []);
 
@@ -40,7 +37,6 @@ export default function Locations() {
             <h3 className="text-2xl font-semibold mb-2 block border-b border-[#66421f]">{place.name}</h3>
             <p className="text-brown">{place.description}</p>
             {showMap && <Map location={place} />}
-
           </div>
         </div>
       ))}
