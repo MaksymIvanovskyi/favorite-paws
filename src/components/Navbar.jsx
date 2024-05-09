@@ -51,7 +51,7 @@ const Navbar = () => {
           value={inputValue} 
           onChange={(e)  => setInputValue(e.target.value)}
         />
-        <button type="submit" class='rounded-xl m-2 p-2 text-black bg-[#d4a373] font-bold rounded hover:bg-[#c99461] active:bg-[#b18458] delay-100 duration-100 transform hover:scale-105 transition ease-linear' >
+        <button type="submit" className='rounded-xl m-2 p-2 text-black bg-[#d4a373] font-bold rounded hover:bg-[#c99461] active:bg-[#b18458] delay-100 duration-100 transform hover:scale-105 transition ease-linear' >
         Відправити
         </button>
 
