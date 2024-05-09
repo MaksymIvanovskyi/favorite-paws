@@ -23,11 +23,11 @@ export default function Locations() {
     <div className="container mx-auto px-12 py-12">
       <h1 className="text-3xl font-bold mb-4">Locations</h1>
       {places.map(place => (
-        <div key={place.id} className="mb-6 p-2 border border-orange-300 bg-orange-300 rounded-xl transition-transform duration-100 hover:scale-105">
+        <div key={place.id} className="shadow-2xl mb-6 p-2  bg-gradient-to-bl from-[#ffcc7f] from-15%  to-[#d9ab7c] to-1% rounded-xl transition-transform duration-100 hover:scale-105">
           <div className="flex items-center justify-between">
             <img src={place.imageUrl} alt={place.name} className="w-64 h-64 mr-8 rounded-md" />
             <button onClick={() => toggleMap(place.id)}>
-              <img src={MapIcon} alt="Map icon" className="w-14 h-14 cursor-pointer" />
+              <img src={MapIcon} alt="Map icon" className=" w-14 h-14 cursor-pointer" />
             </button>
           </div>
           <div>
@@ -42,12 +42,14 @@ export default function Locations() {
               edit={false}
             />
             {visibleMapId === place.id && (
-              <MapContainer center={[place.latitude, place.longitude]} zoom={13} scrollWheelZoom={false} className="h-80 w-full mt-4">
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Marker position={[place.latitude, place.longitude]}>
-                  <Popup>{place.name}</Popup>
-                </Marker>
-              </MapContainer>
+              <div className="map-container">
+                <MapContainer center={[place.latitude, place.longitude]} zoom={13} scrollWheelZoom={false} className="h-80 w-full mt-4" style={{ zIndex: 1 }}>
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                  <Marker position={[place.latitude, place.longitude]}>
+                    <Popup>{place.name}</Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
             )}
           </div>
         </div>

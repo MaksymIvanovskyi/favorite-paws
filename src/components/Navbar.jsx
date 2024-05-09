@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import fav_paw from '../assets/preview.png';
+import monobank from '../assets/monobank.png';
 import homeIcon from '../assets/home-icon.png';
 import homeIconHover from '../assets/home-icon-hover.png';
 import locationIcon from '../assets/location-icon.png';
@@ -46,16 +47,16 @@ const Navbar = () => {
       <form onSubmit={handleSubmit} className='flex items-center'>
         <input  
           type='text' 
-          className='rounded-xl text-black border border-2 border-[#8f9299] font-bold p-2 rounded' 
+          className='shadow-lg rounded-l-lg text-black  border-[#96673e] font-bold p-2 ' 
           placeholder="Введіть текст" 
           value={inputValue} 
           onChange={(e)  => setInputValue(e.target.value)}
         />
-        <button type="submit" class='rounded-xl m-2 p-2 text-black bg-[#d4a373] font-bold rounded hover:bg-[#c99461] active:bg-[#b18458] delay-100 duration-100 transform hover:scale-105 transition ease-linear' >
+        <button type="submit" className='shadow-lg rounded-r-lg  p-2 text-black bg-[#d4a373] font-bold  hover:bg-[#c99461] active:bg-[#b18458] delay-100 duration-100 transform hover:scale-105 transition ease-linear active:shadow-xl' >
         Відправити
         </button>
 
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="p-4 text-red-500">{error}</p>}
       </form>
       <div onClick={handleNav} className='m-5 block md:show'>
         {nav ? <AiOutlineClose size={30}/> : <AiOutlineMenu size={30} />}
@@ -64,7 +65,7 @@ const Navbar = () => {
         <h1 className='p-5 flex justify-center w-full text-3xl font-bold text-[#000000] m-4' style={{ fontSize: "3rem" }}>Улюблені лапки</h1>
         <Link 
           to="/" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredHome(true)}
           onMouseLeave={() => setIsHoveredHome(false)}
@@ -80,7 +81,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/locations" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredLocations(true)}
           onMouseLeave={() => setIsHoveredLocations(false)}
@@ -96,7 +97,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/about" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredAbout(true)}
           onMouseLeave={() => setIsHoveredAbout(false)}
@@ -112,7 +113,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/contact" 
-          className="p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredContact(true)}
           onMouseLeave={() => setIsHoveredContact(false)}
@@ -126,7 +127,9 @@ const Navbar = () => {
             </div>
           )}
         </Link>
+        
       </ul>
+      
     </nav>
   );
 };
