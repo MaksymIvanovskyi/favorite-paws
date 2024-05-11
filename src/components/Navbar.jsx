@@ -25,39 +25,13 @@ const Navbar = () => {
     setNav(!nav);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!inputValue.trim()) {
-        setError('Будь ласка, введіть текст');
-    } else if (inputValue.trim() === "йди нахуй") {
-        setError('кусай за хуй');
-    } else if (inputValue.trim().length < 9) {
-        setError('Мінімальна кількість символів: 9!');
-    } else {
-        setError('');
-        console.log(inputValue)
-    }
-  }
+  
 
   return (
     <nav className='flex justify-between items-center h-24 max-w-[auto] text-[#000000]'>
       <div className='ml-4'>
         <img className='w-[180px] mt-2' src={fav_paw} alt='/' />
       </div>
-      <form onSubmit={handleSubmit} className='flex items-center'>
-        <input  
-          type='text' 
-          className='shadow-lg rounded-l-lg text-black  border-[#96673e] font-bold p-2 ' 
-          placeholder="Введіть текст" 
-          value={inputValue} 
-          onChange={(e)  => setInputValue(e.target.value)}
-        />
-        <button type="submit" className='shadow-lg rounded-r-lg  p-2 text-black bg-[#d4a373] font-bold  hover:bg-[#c99461] active:bg-[#b18458] delay-100 duration-100 transform hover:scale-105 transition ease-linear active:shadow-xl' >
-        Відправити
-        </button>
-
-        {error && <p className="p-4 text-red-500">{error}</p>}
-      </form>
       <div onClick={handleNav} className='m-5 block md:show'>
         {nav ? <AiOutlineClose size={30}/> : <AiOutlineMenu size={30} />}
       </div>

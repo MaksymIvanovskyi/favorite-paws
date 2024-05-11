@@ -8,6 +8,7 @@ import ReactStars from "react-rating-stars-component";
 export default function Locations() {
   const [places, setPlaces] = useState([]);
   const [visibleMapId, setVisibleMapId] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     Axios.get('http://localhost:5000/api/places')
@@ -19,15 +20,32 @@ export default function Locations() {
     setVisibleMapId(visibleMapId === id ? null : id);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredPlaces = places.filter(place =>
+    place.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto px-12 py-12">
-      <h1 className="text-3xl font-bold mb-4">Locations</h1>
-      {places.map(place => (
-        <div key={place.id} className="shadow-2xl mb-6 p-2  bg-gradient-to-bl from-[#ffcc7f] from-15%  to-[#d9ab7c] to-1% rounded-xl transition-transform duration-100 hover:scale-105">
+      <form className="flex justify-center items-center"> {/* Додано клас 'items-center' */}
+        <input
+          type="text"
+          placeholder="Введіть назву закладу..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          style={{ outlineColor: 'white' }}
+          className="mb-4 p-2 rounded w-1/2 shadow-lg"
+        />
+      </form>
+      {filteredPlaces.map(place => (
+        <div key={place.id} className="shadow-2xl mb-6 p-2 bg-gradient-to-bl from-[#ffcc7f] from-15% to-[#d9ab7c] to-1% rounded-xl transition-transform duration-100 hover:scale-105">
           <div className="flex items-center justify-between">
             <img src={place.imageUrl} alt={place.name} className="w-64 h-64 mr-8 rounded-md" />
             <button onClick={() => toggleMap(place.id)}>
-              <img src={MapIcon} alt="Map icon" className=" w-14 h-14 cursor-pointer" />
+              <img src={MapIcon} alt="Map icon" className="w-14 h-14 cursor-pointer" />
             </button>
           </div>
           <div>
