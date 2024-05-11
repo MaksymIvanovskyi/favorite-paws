@@ -32,14 +32,14 @@ const Navbar = () => {
       <div className='ml-4'>
         <img className='w-[180px] mt-2' src={fav_paw} alt='/' />
       </div>
-      <div onClick={handleNav} className='m-5 block md:show'>
+      <div onClick={handleNav} className='text-[#745638] m-5 block md:show'>
         {nav ? <AiOutlineClose size={30}/> : <AiOutlineMenu size={30} />}
-      </div>
+        </div>
       <ul className={nav ? 'fixed left-0 top-0 w-[35%] h-full border-[#fdfeff] bg-[#ffcf9f] ease-in-out duration-300 z-50' : 'ease-in-out duration-300 fixed left-[-100%] z-50'}>
-        <h1 className='p-5 flex justify-center w-full text-3xl font-bold text-[#000000] m-4' style={{ fontSize: "3rem" }}>Улюблені лапки</h1>
+        <h1 className='p-5 flex justify-center w-full text-3xl font-bold text-[#806141] m-4' style={{ fontSize: "3rem" }}>Улюблені лапки</h1>
         <Link 
           to="/" 
-          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#806141] font-bold block  hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredHome(true)}
           onMouseLeave={() => setIsHoveredHome(false)}
@@ -55,7 +55,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/locations" 
-          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#806141] font-bold block  hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredLocations(true)}
           onMouseLeave={() => setIsHoveredLocations(false)}
@@ -71,7 +71,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/about" 
-          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#806141] font-bold block  hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredAbout(true)}
           onMouseLeave={() => setIsHoveredAbout(false)}
@@ -87,7 +87,7 @@ const Navbar = () => {
         </Link>
         <Link 
           to="/contact" 
-          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#000000] font-bold block hover:text-[#000000] hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
+          className="rounded-r-lg p-5 flex justify-center items-center border-gray-600 text-[#806141] font-bold block  hover:bg-[#d4a373] delay-100 duration-100 transform hover:scale-105 transition ease-linear hover:shadow-2xl" 
           style={{ fontSize: "3rem" }}
           onMouseEnter={() => setIsHoveredContact(true)}
           onMouseLeave={() => setIsHoveredContact(false)}
@@ -101,9 +101,7 @@ const Navbar = () => {
             </div>
           )}
         </Link>
-        
       </ul>
-      
     </nav>
   );
 };
